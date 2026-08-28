@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ============================================================
+     EDIT ME: page title (shows in the browser tab) and description
+     ============================================================ -->
+<title>Avi — UC Irvine</title>
+<meta name="description" content="M.S. student in EECS at UC Irvine working on edge AI and wireless systems.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Serif:wght@600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   COLORS AND FONTS — change these values to restyle everything
+   ============================================================ */
+:root {
+  --paper:  #f8f8f6;   /* page background */
+  --ink:    #16191c;   /* main text */
+  --muted:  #5d6670;   /* secondary text */
+  --rule:   #e2e4e0;   /* hairlines */
+  --accent: #1d5c8f;   /* links */
+
+  --serif: "IBM Plex Serif", Georgia, serif;
+  --sans:  "IBM Plex Sans", system-ui, sans-serif;
+  --mono:  "IBM Plex Mono", ui-monospace, monospace;
+}
+
+/* Automatic dark mode. Delete this whole block if you don't want it. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper:  #101316;
+    --ink:    #e8eae7;
+    --muted:  #98a1ab;
+    --rule:   #262b30;
+    --accent: #7fb3e0;
+  }
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  padding: 0 24px 96px;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: 700px; margin: 0 auto; }
+
+a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
+a:hover { border-bottom-color: var(--accent); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+p { margin: 0 0 16px; }
+ul { margin: 0 0 16px; padding-left: 20px; }
+li { margin-bottom: 6px; }
+
+/* ---------- nav ---------- */
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+  padding: 28px 0 0;
+  font-family: var(--mono);
+  font-size: 13px;
+}
+.nav a { color: var(--muted); }
+.nav a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+
+/* ---------- header ---------- */
+.header { padding: 56px 0 8px; }
+
+.header .photo {
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 24px;
+  display: block;
+}
+
+.header h1 {
+  font-family: var(--serif);
+  font-size: 38px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0 0 6px;
+}
+
+.header .role { color: var(--muted); margin: 0 0 20px; }
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  font-family: var(--mono);
+  font-size: 13px;
+}
+
+/* ---------- section headings (mono label sitting on a hairline) ---------- */
+.section { padding-top: 56px; scroll-margin-top: 24px; }
+
+.section > h2 {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 28px;
+}
+.section > h2::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* ---------- entries (projects, publications, experience) ---------- */
+.entry { margin-bottom: 34px; }
+
+.entry h3 {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 600;
+  margin: 0 0 4px;
+  line-height: 1.35;
+}
+
+.entry .meta {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--muted);
+  margin: 0 0 10px;
+}
+
+.entry p { margin: 0 0 10px; }
+
+.entry .actions { font-family: var(--mono); font-size: 12.5px; }
+.entry .actions a { margin-right: 14px; }
+
+/* ---------- news list ---------- */
+.news { list-style: none; padding: 0; margin: 0; }
+.news li {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  margin-bottom: 12px;
+}
+.news .date {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--muted);
+  flex: 0 0 78px;
+}
+
+/* ---------- footer ---------- */
+.footer {
+  margin-top: 72px;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+/* ---------- small screens ---------- */
+@media (max-width: 560px) {
+  .header h1 { font-size: 30px; }
+  .news li { display: block; }
+  .news .date { display: block; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+
+<nav class="nav">
+  <a href="#about">About</a>
+  <!-- <a href="#news">News</a> -->
+  <a href="#projects">Projects</a>
+  <a href="#experience">Experience</a>
+</nav>
+
+<!-- ============================================================
+     HEADER
+     To use a photo: put the image file next to this file and
+     uncomment the line below, changing the filename to match.
+     ============================================================ -->
+<header class="header">
+  <!-- <img class="photo" src="photo.jpg" alt="Avi"> -->
+
+  <h1>Avi</h1>
+  <p class="role">
+    M.S. student, Electrical Engineering and Computer Science<br>
+    <a href="https://uci.edu">University of California, Irvine</a>
+  </p>
+
+  <div class="links">
+    <a href="mailto:you@uci.edu">Email</a>
+    <a href="https://github.com/YOUR-USERNAME">GitHub</a>
+    <a href="https://linkedin.com/in/YOUR-USERNAME">LinkedIn</a>
+    <a href="cv.pdf">CV</a>
+  </div>
+</header>
+
+<!-- ============================================================
+     ABOUT
+     ============================================================ -->
+<section class="section" id="about">
+  <h2>About</h2>
+
+  <p>
+    I am an M.S. student in Electrical Engineering and Computer Science at UC Irvine,
+    where I work with <a href="https://iasl.ics.uci.edu/people/marco-levorato/">Prof. Marco Levorato</a>
+    on edge AI and wireless systems. Before graduate school I was a software engineer at
+    Oracle Financial Services Software.
+  </p>
+
+  <p>
+    My work sits between machine learning systems and the networks they run on: splitting
+    inference across devices and edge servers, scheduling computation under unreliable
+    wireless links, and measuring what actually happens on real radio hardware rather than
+    in simulation alone.
+  </p>
+</section>
+
+<!-- ============================================================
+     NEWS — add newest items at the top, delete old ones
+     ============================================================ -->
+<!--
+<section class="section" id="news">
+  <h2>News</h2>
+
+  <ul class="news">
+    <li>
+      <span class="date">Aug 2026</span>
+      <span>Started work on edge task offloading for multi-robot systems.</span>
+    </li>
+    <li>
+      <span class="date">Jun 2026</span>
+      <span>Presented split-inference results using the Colosseum wireless emulator.</span>
+    </li>
+  </ul>
+</section>
+-->
+
+<!-- ============================================================
+     PROJECTS
+     To add one: copy an entire <div class="entry"> block and edit it.
+     ============================================================ -->
+<section class="section" id="projects">
+  <h2>Projects</h2>
+
+  <div class="entry">
+    <h3>Split inference over wireless links</h3>
+    <p class="meta">PyTorch · Mask R-CNN · Colosseum · srsLTE</p>
+    <p>
+      Partitioned an object-detection model across a mobile-class device and a server GPU,
+      then measured how the split point and compression level trade off against accuracy and
+      latency under real LTE conditions on a wireless emulator.
+    </p>
+    <div class="actions">
+      <a href="#">Code</a>
+      <a href="#">Paper</a>
+    </div>
+  </div>
+
+  <div class="entry">
+    <h3>Edge offloading for multi-robot systems</h3>
+    <p class="meta">World models · Reinforcement learning · Edge computing</p>
+    <p>
+      Extending hierarchical world models with task offloading, where several robots share a
+      single edge server and their radio and compute queues interact. Evaluated on how policy
+      success degrades as observations go stale.
+    </p>
+    <div class="actions">
+      <a href="#">Code</a>
+    </div>
+  </div>
+
+  <div class="entry">
+    <h3>RISC-V systems work</h3>
+    <p class="meta">RV64 · QEMU · GDB · xv6</p>
+    <p>
+      Bare-metal trap handling and a cooperative scheduler written in C and assembly, plus a
+      dynamic tick scheduler in the xv6 kernel that cut average test execution time by about
+      30% against the static baseline.
+    </p>
+    <div class="actions">
+      <a href="#">Code</a>
+    </div>
+  </div>
+
+  <div class="entry">
+    <h3>Raspberry Pi research assistant</h3>
+    <p class="meta">Raspberry Pi 5 · Linux · LLM tooling</p>
+    <p>
+      A small always-on machine that handles paper ingestion and note-taking for my research,
+      reachable from a chat interface.
+    </p>
+    <div class="actions">
+      <a href="#">Code</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     EXPERIENCE
+     ============================================================ -->
+<section class="section" id="experience">
+  <h2>Experience</h2>
+
+  <div class="entry">
+    <h3>Graduate Researcher — UC Irvine</h3>
+    <p class="meta">2025 – present</p>
+    <p>
+      Edge AI and wireless systems research in Prof. Levorato's lab: modifying LTE stacks,
+      socket-level pipelines, and MAC-layer instrumentation on the Colosseum emulator.
+    </p>
+  </div>
+
+  <div class="entry">
+    <h3>Software Engineer — Oracle Financial Services Software</h3>
+    <p class="meta">Java · Oracle JET · FLEXCUBE</p>
+    <p>
+      Delivered 20+ feature enhancements to a retail banking platform through to production
+      deployment.
+    </p>
+  </div>
+</section>
+
+<footer class="footer">
+  © 2026 Avi. Built as a single HTML file.
+</footer>
+
+</div>
+</body>
+</html>
