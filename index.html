@@ -351,12 +351,76 @@ li { margin-bottom: 6px; }
   </div> -->
 
   <div class="entry">
-    <h3>RISC-V systems work</h3>
-    <p class="meta">RV64 · QEMU · GDB · xv6</p>
+    <h3>Cooperative scheduler in C and assembly</h3>
+    <p class="meta">Advanced System Software · C · RISC-V assembly</p>
     <p>
-      Bare-metal trap handling and a cooperative scheduler written in C and assembly, plus a
-      dynamic tick scheduler in the xv6 kernel that cut average test execution time by about
-      30% against the static baseline.
+      Implemented trap entry via mtvec, three processes with per-process saved PCs, switched by rewriting mepc inside the ecall handler.
+    </p>
+    <div class="actions">
+      <a href="#">Code</a>
+    </div>
+  </div>
+
+  <div class="entry">
+    <h3>Dynamic tick scheduler, xv6-riscv</h3>
+    <p class="meta">Advanced System Software · C · xv6-riscv</p>
+    <p>
+      Implemented a dynamic timer tick in the MIT xv6-riscv kernel, instrumenting context switches, timer activity, and process states in kernel and user space; average usertests execution ticks fell 29.5% from the static-tick baseline.
+    </p>
+    <div class="actions">
+      <a href="#">Code</a>
+    </div>
+  </div>
+
+  <div class="entry">
+    <h3>Cross-demographic IMU modelling</h3>
+    <p class="meta">Machine Learning · RNN · MotionSense</p>
+    <p>
+      Built an RNN next-step predictor for 3-axis accelerometer data (MotionSense); measured per-subject MSE degradation across age/gender groups and explained it via PCA axis loadings.
+    </p>
+    <div class="actions">
+      <a href="#">Code</a>
+    </div>
+  </div>
+
+  <div class="entry">
+    <h3>Multimodal sensor fusion on Isomap embedding</h3>
+    <p class="meta">Unsupervised Machine Learning · Autoencoder · PandaSet</p>
+    <p>
+      Embedded 32-D latents from a multimodal autoencoder (front-camera, LiDAR BEV, pose-derived dynamics; PandaSet) onto a 2D Isomap manifold, clustered it with K-means, and showed the clusters correspond to driving regimes via speed and LiDAR-range overlays.
+    </p>
+    <div class="actions">
+      <a href="#">Code</a>
+    </div>
+  </div>
+
+  <div class="entry">
+    <h3>Path planning and PID control, Waffle-Pi robot</h3>
+    <p class="meta">Autonomous Systems · ROS · Gazebo</p>
+    <p>
+      Built a ROS navigation stack that plans a route with RRT and tracks it with a PID pose controller in Gazebo.
+    </p>
+    <div class="actions">
+      <a href="#">Code</a>
+    </div>
+  </div>
+
+  <div class="entry">
+    <h3>Neural network controller, Waffle-Pi robot</h3>
+    <p class="meta">Autonomous Systems · Imitation learning · MPC</p>
+    <p>
+      Trained a neural network to imitate an MPC expert driving a differential-drive robot, replacing the hand-tuned controller.
+    </p>
+    <div class="actions">
+      <a href="#">Code</a>
+    </div>
+  </div>
+
+  <div class="entry">
+    <h3>Gray-coded M-QAM link simulation</h3>
+    <p class="meta">Digital Communications · MATLAB</p>
+    <p>
+      Implemented 4-QAM and 64-QAM modulation, AWGN transmission, and coherent demodulation in MATLAB, extending a fixed 16-QAM reference to arbitrary square constellations; benchmarked simulated bit error rates.
     </p>
     <div class="actions">
       <a href="#">Code</a>
