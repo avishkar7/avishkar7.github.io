@@ -155,14 +155,12 @@ li { margin-bottom: 6px; }
 .entry .actions a { margin-right: 14px; }
 
 /* ---------- coursework list ---------- */
-.courses {
-  list-style: none; padding: 0; margin: 4px 0 10px;
-  columns: 2; column-gap: 28px;
-  font-size: 14.5px;
-}
-.courses li { break-inside: avoid; margin-bottom: 4px; }
-.entry .label { font-family: var(--mono); font-size: 12.5px; color: var(--muted); margin: 12px 0 2px; }
-@media (max-width: 560px) { .courses { columns: 1; } }
+.entry .label { font-family: var(--mono); font-size: 12.5px; color: var(--muted); margin: 14px 0 4px; }
+.entry .term { font-size: 13.5px; font-weight: 500; margin: 12px 0 4px; }
+.courses { list-style: none; padding: 0; margin: 0 0 6px; font-size: 14.5px; }
+.courses li { display: grid; grid-template-columns: 6.5em 1fr; gap: 12px; margin-bottom: 4px; }
+.courses .code { font-family: var(--mono); font-size: 12.5px; color: var(--muted); padding-top: 2px; }
+@media (max-width: 560px) { .courses li { grid-template-columns: 1fr; gap: 0; } }
 
 /* ---------- news list ---------- */
 .news { list-style: none; padding: 0; margin: 0; }
@@ -264,26 +262,37 @@ li { margin-bottom: 6px; }
 
   <div class="entry">
     <h3>M.S., Electrical Engineering and Computer Science — University of California, Irvine</h3>
-    <p class="meta">Sept 2025 – expected March 2027 · GPA 3.9/4.0</p>
+    <p class="meta">September 2025 – expected March 2027 · GPA 3.9/4.0</p>
     <p class="label">Coursework</p>
+    <p class="term">Fall 2026 · in progress</p>
     <ul class="courses">
-      <li>Advanced System Software</li>
-      <li>Computer Communication Networks</li>
-      <li>Embedded System Modelling</li>
-      <li>Digital Communications</li>
-      <li>Autonomous Systems</li>
-      <li>Machine Learning for Signal Processing</li>
-      <li>Unsupervised Machine Learning</li>
-      <li>Digital Image Processing</li>
-      <li>Learning Methods for Dynamical Systems</li>
-      <li>Design and Analysis of Algorithms</li>
-      <li>Linear Systems</li>
+      <li><span class="code">EECS 213</span>Computer Architecture</li>
+      <li><span class="code">EECS 215</span>Design and Analysis of Algorithms</li>
+      <li><span class="code">EECS 222</span>Embedded System Modeling</li>
+    </ul>
+    <p class="term">Spring 2026</p>
+    <ul class="courses">
+      <li><span class="code">EECS 221</span>Topics in Computer Engineering: Autonomous Systems</li>
+      <li><span class="code">EECS 203A</span>Digital Image Processing</li>
+      <li><span class="code">EECS 299</span>Individual Research (Prof. Marco Levorato)</li>
+    </ul>
+    <p class="term">Winter 2026</p>
+    <ul class="courses">
+      <li><span class="code">EECS 298</span>Topics in EECS: Learning-Based Methods for Modeling and Control of Dynamical Systems</li>
+      <li><span class="code">EECS 211</span>Advanced System Software</li>
+      <li><span class="code">EECS 254</span>Unsupervised Computational Neural Networks and Machine Learning</li>
+    </ul>
+    <p class="term">Fall 2025</p>
+    <ul class="courses">
+      <li><span class="code">EECS 241A</span>Digital Communications I</li>
+      <li><span class="code">EECS 253</span>Machine Learning for Signal Processing</li>
+      <li><span class="code">EECS 248A</span>Computer and Communication Networks</li>
     </ul>
   </div>
 
   <div class="entry">
     <h3>B.E., Electronics and Telecommunication — Mumbai University</h3>
-    <p class="meta">May 2023</p>
+    <p class="meta">August 2018 - May 2023</p>
   </div>
 
   <div class="entry">
