@@ -154,6 +154,16 @@ li { margin-bottom: 6px; }
 .entry .actions { font-family: var(--mono); font-size: 12.5px; }
 .entry .actions a { margin-right: 14px; }
 
+/* ---------- coursework list ---------- */
+.courses {
+  list-style: none; padding: 0; margin: 4px 0 10px;
+  columns: 2; column-gap: 28px;
+  font-size: 14.5px;
+}
+.courses li { break-inside: avoid; margin-bottom: 4px; }
+.entry .label { font-family: var(--mono); font-size: 12.5px; color: var(--muted); margin: 12px 0 2px; }
+@media (max-width: 560px) { .courses { columns: 1; } }
+
 /* ---------- news list ---------- */
 .news { list-style: none; padding: 0; margin: 0; }
 .news li {
@@ -198,6 +208,7 @@ li { margin-bottom: 6px; }
 <nav class="nav">
   <a href="#about">About</a>
   <!-- <a href="#news">News</a> -->
+  <a href="#education">Education</a>
   <a href="#projects">Projects</a>
   <a href="#experience">Experience</a>
 </nav>
@@ -217,10 +228,10 @@ li { margin-bottom: 6px; }
   </p>
 
   <div class="links">
-    <a href="mailto:you@uci.edu">Email</a>
+    <a href="mailto:akawadga@uci.edu">Email</a>
     <a href="https://github.com/avishkar7">GitHub</a>
     <a href="https://linkedin.com/in/avikawadgave">LinkedIn</a>
-    <a href="cv.pdf">CV</a>
+    <a href="Avishkar_Kawadgave_Resume.pdf" target="_blank" rel="noopener">Resume</a>
   </div>
 </header>
 
@@ -243,6 +254,47 @@ li { margin-bottom: 6px; }
     wireless links, and measuring what actually happens on real radio hardware rather than
     in simulation alone. My research interests are evolving into control and real-time embedded systems. 
   </p>
+</section>
+
+<!-- ============================================================
+     EDUCATION
+     ============================================================ -->
+<section class="section" id="education">
+  <h2>Education</h2>
+
+  <div class="entry">
+    <h3>M.S., Electrical Engineering and Computer Science — University of California, Irvine</h3>
+    <p class="meta">Sept 2025 – expected March 2027 · GPA 3.9/4.0</p>
+    <p class="label">Coursework</p>
+    <ul class="courses">
+      <li>Advanced System Software</li>
+      <li>Computer Communication Networks</li>
+      <li>Embedded System Modelling</li>
+      <li>Digital Communications</li>
+      <li>Autonomous Systems</li>
+      <li>Machine Learning for Signal Processing</li>
+      <li>Unsupervised Machine Learning</li>
+      <li>Digital Image Processing</li>
+      <li>Learning Methods for Dynamical Systems</li>
+      <li>Design and Analysis of Algorithms</li>
+      <li>Linear Systems</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <h3>B.E., Electronics and Telecommunication — Mumbai University</h3>
+    <p class="meta">May 2023</p>
+  </div>
+
+  <div class="entry">
+    <h3>Courses and certifications</h3>
+    <ul>
+      <li>Embedded Systems Programming on ARM Cortex-M3/M4 Processor <span class="meta">(in progress)</span></li>
+      <li>5G for Everyone — Qualcomm / Coursera <span class="meta">(2023)</span></li>
+      <li>Deep Learning Specialization — DeepLearning.AI <span class="meta">(2023)</span></li>
+      <li>TensorFlow Developer Specialization — DeepLearning.AI <span class="meta">(2023)</span></li>
+    </ul>
+  </div>
 </section>
 
 <!-- ============================================================
