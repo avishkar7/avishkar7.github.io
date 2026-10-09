@@ -10,6 +10,18 @@
 <title>Avishkar Kawadgave</title>
 <meta name="description" content="M.S. student in EECS at UC Irvine working on edge AI and wireless systems.">
 
+<!-- Apply the saved (or system) theme before the page paints, so there's no flash -->
+<script>
+(function () {
+  var t = null;
+  try { t = localStorage.getItem("theme"); } catch (e) {}
+  if (t !== "light" && t !== "dark") {
+    t = window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+  document.documentElement.setAttribute("data-theme", t);
+})();
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -19,26 +31,38 @@
 /* ============================================================
    COLORS AND FONTS — change these values to restyle everything
    ============================================================ */
+/* Off-white (light) theme */
 :root {
-  --paper:  #f8f8f6;   /* page background */
+  --paper:  #f7f6f2;   /* page background */
   --ink:    #16191c;   /* main text */
   --muted:  #5d6670;   /* secondary text */
-  --rule:   #e2e4e0;   /* hairlines */
+  --rule:   #e3e2dc;   /* hairlines */
   --accent: #1d5c8f;   /* links */
 
---serif: "Roboto", Arial, sans-serif;
---sans: "Roboto", Arial, sans-serif;
---mono: "Roboto", Arial, sans-serif;
+  --serif: "Roboto", Arial, sans-serif;
+  --sans: "Roboto", Arial, sans-serif;
+  --mono: "Roboto", Arial, sans-serif;
+  color-scheme: light;
 }
 
-/* Automatic dark mode. Delete this whole block if you don't want it. */
+/* Dark theme: used when the visitor picks it with the toggle,
+   or when their system is dark and they haven't picked anything. */
+:root[data-theme="dark"] {
+  --paper:  #101316;
+  --ink:    #e8eae7;
+  --muted:  #98a1ab;
+  --rule:   #262b30;
+  --accent: #7fb3e0;
+  color-scheme: dark;
+}
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --paper:  #101316;
     --ink:    #e8eae7;
     --muted:  #98a1ab;
     --rule:   #262b30;
     --accent: #7fb3e0;
+    color-scheme: dark;
   }
 }
 
@@ -79,6 +103,26 @@ li { margin-bottom: 6px; }
 }
 .nav a { color: var(--muted); }
 .nav a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+
+/* ---------- theme toggle ---------- */
+.theme-toggle {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  background: none;
+  border: 0;
+  color: var(--muted);
+  font: inherit;
+  cursor: pointer;
+}
+.theme-toggle:hover { color: var(--ink); }
+.theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.theme-toggle svg { width: 15px; height: 15px; }
+.theme-toggle .icon-sun { display: none; }
+:root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+:root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 
 /* ---------- header ---------- */
 .header {
@@ -221,6 +265,11 @@ li { margin-bottom: 6px; }
   <a href="#research">Research</a>
   <a href="#projects">Projects</a>
   <a href="#experience">Experience</a>
+  <button class="theme-toggle" type="button" aria-label="Switch to dark mode">
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    <span class="theme-label">Dark</span>
+  </button>
 </nav>
 
 <!-- ============================================================
@@ -510,5 +559,40 @@ li { margin-bottom: 6px; }
 </footer>
 
 </div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var btn = document.querySelector(".theme-toggle");
+  var label = btn.querySelector(".theme-label");
+
+  function render() {
+    var dark = root.getAttribute("data-theme") === "dark";
+    label.textContent = dark ? "Light" : "Dark";
+    btn.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+  }
+
+  btn.addEventListener("click", function () {
+    var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("theme", next); } catch (e) {}
+    render();
+  });
+
+  // Follow system changes until the visitor picks a theme themselves
+  if (window.matchMedia) {
+    matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (e) {
+      var saved = null;
+      try { saved = localStorage.getItem("theme"); } catch (err) {}
+      if (saved !== "light" && saved !== "dark") {
+        root.setAttribute("data-theme", e.matches ? "dark" : "light");
+        render();
+      }
+    });
+  }
+
+  render();
+})();
+</script>
 </body>
 </html>
