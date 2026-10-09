@@ -15,9 +15,7 @@
 (function () {
   var t = null;
   try { t = localStorage.getItem("theme"); } catch (e) {}
-  if (t !== "light" && t !== "dark") {
-    t = window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-  }
+  if (t !== "dark") t = "light";  /* light by default; dark only if the visitor chose it */
   document.documentElement.setAttribute("data-theme", t);
 })();
 </script>
@@ -45,8 +43,7 @@
   color-scheme: light;
 }
 
-/* Dark theme: used when the visitor picks it with the toggle,
-   or when their system is dark and they haven't picked anything. */
+/* Dark theme: only when the visitor picks it with the toggle */
 :root[data-theme="dark"] {
   --paper:  #101316;
   --ink:    #e8eae7;
@@ -54,16 +51,6 @@
   --rule:   #262b30;
   --accent: #7fb3e0;
   color-scheme: dark;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --paper:  #101316;
-    --ink:    #e8eae7;
-    --muted:  #98a1ab;
-    --rule:   #262b30;
-    --accent: #7fb3e0;
-    color-scheme: dark;
-  }
 }
 
 /* ---------- base ---------- */
@@ -578,18 +565,6 @@ li { margin-bottom: 6px; }
     try { localStorage.setItem("theme", next); } catch (e) {}
     render();
   });
-
-  // Follow system changes until the visitor picks a theme themselves
-  if (window.matchMedia) {
-    matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (e) {
-      var saved = null;
-      try { saved = localStorage.getItem("theme"); } catch (err) {}
-      if (saved !== "light" && saved !== "dark") {
-        root.setAttribute("data-theme", e.matches ? "dark" : "light");
-        render();
-      }
-    });
-  }
 
   render();
 })();
