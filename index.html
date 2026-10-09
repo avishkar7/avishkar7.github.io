@@ -81,23 +81,31 @@ li { margin-bottom: 6px; }
 .nav a:hover { color: var(--ink); border-bottom-color: var(--ink); }
 
 /* ---------- header ---------- */
-.header { padding: 56px 0 8px; }
+.header {
+  padding: 56px 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
 
 .header .photo {
-  width: 104px;
-  height: 104px;
+  width: 204px;
+  height: 204px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 24px;
+  flex-shrink: 0;
   display: block;
 }
+
+.header-text { min-width: 0; }
 
 .header h1 {
   font-family: var(--serif);
   font-size: 38px;
   font-weight: 600;
   letter-spacing: -0.01em;
-  margin: 0 0 6px;
+  line-height: 1.15;
+  margin: 0 0 10px;
 }
 
 .header .role { color: var(--muted); margin: 0 0 20px; }
@@ -190,6 +198,8 @@ li { margin-bottom: 6px; }
 
 /* ---------- small screens ---------- */
 @media (max-width: 560px) {
+  .header { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .header .photo { width: 156px; height: 156px; }
   .header h1 { font-size: 30px; }
   .news li { display: block; }
   .news .date { display: block; }
@@ -208,29 +218,30 @@ li { margin-bottom: 6px; }
   <a href="#about">About</a>
   <!-- <a href="#news">News</a> -->
   <a href="#education">Education</a>
+  <a href="#research">Research</a>
   <a href="#projects">Projects</a>
   <a href="#experience">Experience</a>
 </nav>
 
 <!-- ============================================================
-     HEADER
-     To use a photo: put the image file next to this file and
-     uncomment the line below, changing the filename to match.
+     HEADER — photo sits beside the name (stacks on phones)
      ============================================================ -->
 <header class="header">
-  <!-- <img class="photo" src="photo.jpg" alt="Avi"> -->
+  <img class="photo" src="photo.jpg" alt="Avishkar Kawadgave">
 
-  <h1>Avishkar Dnyaneshwar Kawadgave</h1>
-  <p class="role">
-    M.S. student, Electrical Engineering and Computer Science<br>
-    <a href="https://uci.edu">University of California, Irvine</a>
-  </p>
+  <div class="header-text">
+    <h1>Avishkar Dnyaneshwar Kawadgave</h1>
+    <p class="role">
+      M.S. student, Electrical Engineering and Computer Science<br>
+      <a href="https://uci.edu">University of California, Irvine</a>
+    </p>
 
-  <div class="links">
-    <a href="mailto:akawadga@uci.edu">Email</a>
-    <a href="https://github.com/avishkar7">GitHub</a>
-    <a href="https://linkedin.com/in/avikawadgave">LinkedIn</a>
-    <a href="Avishkar_Kawadgave_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+    <div class="links">
+      <a href="mailto:akawadga@uci.edu">Email</a>
+      <a href="https://github.com/avishkar7">GitHub</a>
+      <a href="https://linkedin.com/in/avikawadgave">LinkedIn</a>
+      <a href="Avishkar_Kawadgave_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </div>
   </div>
 </header>
 
@@ -303,6 +314,26 @@ li { margin-bottom: 6px; }
       <li><a href="https://www.coursera.org/account/accomplishments/specialization/certificate/8HMFUWRT9T8E" target="_blank" rel="noopener">Deep Learning Specialization</a> — DeepLearning.AI <span class="meta">(2023)</span></li>
       <li><a href="https://www.coursera.org/account/accomplishments/specialization/certificate/DU285ABSHPRQ" target="_blank" rel="noopener">TensorFlow Developer Specialization</a> — DeepLearning.AI <span class="meta">(2023)</span></li>
     </ul>
+  </div>
+</section>
+
+<!-- ============================================================
+     RESEARCH — publications
+     ============================================================ -->
+<section class="section" id="research">
+  <h2>Research</h2>
+
+  <div class="entry">
+    <h3>AI-Driven Insights: Personality Evaluation in Asynchronous Video Interviews for Informed Hiring Decisions</h3>
+    <!-- Add the author list here once confirmed, e.g. <p class="meta">A. D. Kawadgave, ...</p> -->
+    <p class="meta">ICITEICS 2024 · Bangalore · IEEE</p>
+    <p>
+      An end-to-end NLP pipeline that predicts Big Five (OCEAN) personality traits from text,
+      trained on the Big-5 Essays and MBTI-derived datasets.
+    </p>
+    <div class="actions">
+      <a href="https://doi.org/10.1109/ICITEICS61368.2024.10625601" target="_blank" rel="noopener">Paper (IEEE Xplore)</a>
+    </div>
   </div>
 </section>
 
